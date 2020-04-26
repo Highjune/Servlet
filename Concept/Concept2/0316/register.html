@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            $("button").bind("click", function(){
+                $('form').submit();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>회원가입서</h1>
+    <form action="servlet/RegisterServlet" method="POST">
+        <ul>
+            <li>Name : <input type="text" name="username" required></li>
+            <li>Gender : 
+                <input type="radio" name="gender" value="male">남성&nbsp;&nbsp;
+                <input type="radio" name="gender" value="female">여성
+            </li>
+            <li>Age : <input type="number" name="userage" min="20" max="65" required></li>
+            <li>City : 
+                <select name="usercity">
+                    <option value="">--선택--</option>
+                    <option value="서울">서울</option>
+                    <option value="부산">부산</option>
+                    <option value="대전">대전</option>
+                    <option value="인천">인천</option>
+                    <option value="제주">제주</option>
+                </select>
+            </li>
+            <li><button type="button">가입하기</button></li>
+        </ul>
+    </form>
+</body>
+</html>
