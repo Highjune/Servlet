@@ -19,22 +19,22 @@ public class MemberServiceImpl implements MemberService {
 	public int create(MemberVO member) {
 		int row = -1;
 		try {
-			row = dao.insertMember(member);
+			row = dao.insertMember(member); //dao로 보냄
 		}catch(SQLException ex) {
 			System.out.println(ex);
 		}
-		return row;
+		return row; //이것을 RegisterServlet이 받아서 그린다.
 	}
 
 	@Override
 	public MemberVO select(int idx) {
 		MemberVO member = null;
 		try {
-			member = this.dao.selectMember(idx);
+			member = this.dao.selectMember(idx); //dao에 idx에 던져서 해당하는 학생을 member를 받아옴.
 		}catch(SQLException ex) {
 			System.out.println(ex);
 		}
-		return member;
+		return member; //이것을 selectServlet이 받아서 그린다.
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class MemberServiceImpl implements MemberService {
 		}catch(SQLException ex) {
 			System.out.println(ex);
 		}
-		return list;
+		return list; //이것을 ListServlet이 받아서 그린다.
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class MemberServiceImpl implements MemberService {
 			System.out.println(ex);
 		}
 		return row;
-	}
+	} // 이것을 
 
 	@Override
 	public int delete(int idx) {
@@ -67,7 +67,7 @@ public class MemberServiceImpl implements MemberService {
 		}catch(SQLException ex) {
 			System.out.println(ex);
 		}
-		return row;
+		return row; //삭제한 row의 갯수
 	}
 
 }

@@ -26,21 +26,24 @@ public class RegisterServlet extends HttpServlet {
 		MemberVO member = new MemberVO(name, gender ,age, city);
 		
 		MemberService service = new MemberServiceImpl();
-		int row = service.create(member);
-			
+		int row = service.create(member); //서비스가 DB->DAO에서 받아온 row를 넘긴다
+		//이까지가 자바의 영역
+		
+		
+		//아래부터는 서블릿
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out = resp.getWriter();
 		out.println("<meta charset='utf-8'>");
 		if(row == 1) {  //insert 성공했다면
-//			out.println("<p style='color:blue;font-size:3em'>Insert Success</p>");
-			out.println("<script>");
+			out.println("<p style='color:blue;font-size:3em'>Insert Success</p>");
+			out.println("<script>"); //javascript 이용해서 redirect
 			out.println("   location.href = \"/0317/servlet/List\";");
 			out.println("</script>");
-		}else {  //실패했다면
-//			out.println("<p style='color:red;font-size:3em'>Insert Failure</p>");
+		}else {  //insert 실패했다면
+			out.println("<p style='color:red;font-size:3em'>Insert Failure</p>");
 			out.println("<script>");
-			out.println("alert('회원 가입 실패'); ");
-			out.println("history.back(); ");
+			out.println("alert('회원 가입 실패'); ");  
+			out.println("history.back(); "); //alert의 확인을 누르면 뒤로가기.
 			out.println("</script>");
 		}
 		out.close();
