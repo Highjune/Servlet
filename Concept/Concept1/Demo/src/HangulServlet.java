@@ -15,8 +15,8 @@ public class HangulServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-		//resp - user에게 보내는 것.(response)
-		res.setContentType("text/html;charset=utf-8");  //한글위한 조건1(content type)
+		//res  - user에게 보내는 것.(response)
+		res.setContentType("text/html;charset=utf-8");  //한글위한 조건1(content type), text/html은 mime타입임.(html문서라는 것을 알려줌)
 		
 		//user와 was사이에 터널링이 생기는 것임(터널로 데이터 보냄)
 		PrintWriter out = res.getWriter(); //자바 web에서는 무조건 다 printwriter를 사용한다. (스탠다드edition에서는 printstream), 접미사 writer이므로 한글이나 일본어처럼 2byte 처리가능(char형으로)
@@ -32,3 +32,4 @@ public class HangulServlet extends HttpServlet {
 //2. 해당 프로젝트만 / 해당 프로젝트 우클릭 - properties
 //3. 전체 프로젝트 / windows - preferences - general - workspace
 //이렇게 해도 되고, windows - preferences - web - css/html/jsp 를 각각 다 utf-8로 바꾸기
+

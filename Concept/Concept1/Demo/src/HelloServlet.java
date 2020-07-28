@@ -1,26 +1,26 @@
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.PrintWriter; 
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//À¥Àº mainÀÌ ¾ø´Ù. user°¡ ¿äÃ»ÇÏ¸é doGetÀÌ ¹ßµ¿ÇÏ´Â °ÍÀÓ(°¡¸¸È÷ ±â´Ù¸®°í ÀÖ´Ù°¡)
-//À¥ÀÌ¹Ç·Î public
-//¼­ºí¸´Àº ¾Æ·¡Ã³·³ ¾²µµ·Ï °íÁ¤µÇ¾î ÀÖ´Ù.
+//ì›¹ì€ mainì´ ì—†ë‹¤. userê°€ ìš”ì²­í•˜ë©´ doGetì´ ë°œë™í•˜ëŠ” ê²ƒì„(ê°€ë§Œíˆ ê¸°ë‹¤ë¦¬ê³  ìˆë‹¤ê°€)
+//ì›¹ì´ë¯€ë¡œ public
+//ì„œë¸”ë¦¿ì€ ì•„ë˜ì²˜ëŸ¼ ì“°ë„ë¡ ê³ ì •ë˜ì–´ ìˆë‹¤.
 
 
 
 
 @WebServlet("/servlet/Hello")
-public class HelloServlet extends HttpServlet {  //¸ğµç ¼­ºí¸´ÀÇ ÀÚ½ÄÀº ¹«Á¶°Ç HttpServletÀÇ ÀÚ½Ä
-	//userÇÑÅ× º¸³»¸é response. userÇÑÅ× ¹ŞÀ¸¸é request
+public class HelloServlet extends HttpServlet { //ëª¨ë“  ì„œë¸”ë¦¿ì˜ ìì‹ì€ ë¬´ì¡°ê±´ HttpServletì˜ ìì‹
+		//userí•œí…Œ ë³´ë‚´ë©´ response. userí•œí…Œ ë°›ìœ¼ë©´ request
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)  //ºÎ¸ğ(HttpServlet)°¡ ¸¸µç °Í ±×´ë·Î. ¹«Á¶°Ç ÆÄ¶ó¹ÌÅÍ°¡ 2°³
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)   //ë¶€ëª¨(HttpServlet)ê°€ ë§Œë“  ê²ƒ ê·¸ëŒ€ë¡œ. ë¬´ì¡°ê±´ íŒŒë¼ë¯¸í„°ê°€ 2ê°œ
 			throws ServletException, IOException{
-		//ºê¶ó¿ìÀú·Î º¸³»´Â °ÍÀÓ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		PrintWriter out = resp.getWriter(); 
 		out.println("<font size='7' color='blue'><b>Hello, Servlet</b></font>");
 		out.close();
@@ -28,8 +28,10 @@ public class HelloServlet extends HttpServlet {  //¸ğµç ¼­ºí¸´ÀÇ ÀÚ½ÄÀº ¹«Á¶°Ç H
 }
 
 
-//¼­ºí¸´Àº ÀÌ·¸°Ô ¸ğµç ÄÚµå¸¦ ÀÚ¹Ù ¼Ó¿¡ ³Ö´Â´Ù. cf) html¾È¿¡ ÀÚ¹Ù¸¦ ³Ö´Â °ÍÀÌ jsp
-//¼­¹ö¿¡¼­ ½ÇÇàÇÏ´Â ÀÚ¹Ù ÇÁ·Î±×·¥=servlet
+
+//ì„œë¸”ë¦¿ì€ ì´ë ‡ê²Œ ëª¨ë“  ì½”ë“œë¥¼ ìë°” ì†ì— ë„£ëŠ”ë‹¤. cf) htmlì•ˆì— ìë°”ë¥¼ ë„£ëŠ” ê²ƒì´ jsp
+//ì„œë²„ì—ì„œ ì‹¤í–‰í•˜ëŠ” ìë°” í”„ë¡œê·¸ë¨=servlet
 //Servlet = Server(was) + Applet(Application + let)
-//applicationÀº ¹æ¸í·Ï, °Ô½ÃÆÇ µîµî
+//applicationì€ ë°©ëª…ë¡, ê²Œì‹œíŒ ë“±ë“±
+
 
